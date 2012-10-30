@@ -101,21 +101,25 @@ describe Fraction do
 
 	it "Se debe de poder comprobar si una fracion es menor que otra" do
 		(Fraction.new(1, 3) < Fraction.new(1, 2)).should == true
+		(Fraction.new(8, 6) < Fraction.new(4, 3)).should == false
 		(Fraction.new(-1, 4) < Fraction.new(1, 2)).should == true
 	end
 	
 	it "Se debe de poder comprobar si una fracion es mayor que otra" do
 		(Fraction.new(1, 2) > Fraction.new(1, 3)).should == true
+		(Fraction.new(4, 3) < Fraction.new(8, 6)).should == false
 		(Fraction.new(1, 2) > Fraction.new(-1, 4)).should == true
 	end
 
 	it "Se debe de poder comprobar si una fracion es menor o igual que otra" do
 		(Fraction.new(1, 3) <= Fraction.new(1, 2)).should == true
+		(Fraction.new(4, 3) <= Fraction.new(1, 2)).should == false 
 		(Fraction.new(-1, 4) <= Fraction.new(1, -4)).should == true
 	end
 	
 	it "Se debe de poder comprobar si una fracion es mayor o igual que otra" do
 		(Fraction.new(1, 2) >= Fraction.new(1, 3)).should == true
+		(Fraction.new(1, 2) >= Fraction.new(4, 3)).should == false
 		(Fraction.new(1, -4) >= Fraction.new(-1, 4)).should == true
 	end
 
