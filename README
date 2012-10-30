@@ -1,0 +1,33 @@
+Practica de Laboratorio # 7: Integración Continua
+
+Desarrollo de una clase Ruby para representar números racionales.
+
+Usando Rspec se debe escribir una clase siguiendo el paradigma de desarrollo dirigido
+por comportamiento, un caso particular del desarrollo dirigido por pruebas.
+
+La clase se ha de compilar con la herramienta Travis de integración continua.
+Con ella se comprueba la portabilidad de los desarrollos entre distintas
+plataformas y versiones de Ruby.
+
+Para ello realizar los siguientes pasos:
+1. Darse de alta en https://travis-ci.org/ y permitir que se acceda desde github.
+2. Crear un fichero .travis.yml que contenga el listado de plataformas:
+language: ruby
+rvm:
+  - 1.9.3
+  - jruby-18mode # JRuby in 1.8 mode
+  - jruby-19mode # JRuby in 1.9 mode
+  - rbx-18mode
+  - rbx-19mode
+  - 1.8.7
+3. Crear un fichero Rakefile que contenga:
+$:.unshift File.dirname(__FILE__) + 'lib'
+
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new
+task :default => :spec
+4. Crear un fichero Gemfile que contenga:
+source 'https://rubygems.org'
+
+gem 'rake'
+gem 'rspec'
